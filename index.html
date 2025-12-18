@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Form</title>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    color: white;
+    background: linear-gradient(-45deg, #000000, #111111, #222222, #000000);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.container {
+    background: rgba(0, 0, 0, 0.55);
+    padding: 30px;
+    width: 85%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    text-align: center;
+}
+h2 { font-size: 28px; margin-bottom: 20px; }
+label { font-size: 18px; display:block; margin-top:10px; }
+input[type="text"], input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+}
+input[type="submit"] {
+    background: #00ffcc;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+.submitted-text { font-size: 18px; margin: 8px 0; }
+</style>
+</head>
+<body>
+<div class="container" id="form-container">
+    <h2>Mini Form</h2>
+    <form id="miniForm">
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Class</label>
+        <input type="text" name="cls" required>
+
+        <label>Section</label>
+        <input type="text" name="sec" required>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+const form = document.getElementById("miniForm");
+const container = document.getElementById("form-container");
+const POST_URL = "https://script.google.com/macros/s/AKfycbwBixy9LZHn1SSDJP4kx894Z_dILfWBunNvQ528DwEOaZ_3swaCqMhN5LklAdpD_7nxig/exec"; // replace with your Google Apps Script URL
+
+form.addEventListener("submit", e => {
+    e.preventDefault();
+    const formData = {
+        name: form.name.value,
+        cls: form.cls.value,
+        sec: form.sec.value
+    };
+    fetch(POST_URL, {
+        method: "POST",
+        body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        container.innerHTML = `
+            <h2>Form Submitted</h2>
+            <p class="submitted-text"><b>Name:</b> ${formData.name}</p>
+            <p class="submitted-text"><b>Class:</b> ${formData.cls}</p>
+            <p class="submitted-text"><b>Section:</b> ${formData.sec}</p>
+        `;
+    })
+    .catch(err => alert("Error submitting form"));
+});
+</script>
+</body>
+</html>
