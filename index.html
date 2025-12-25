@@ -3,52 +3,17 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- 🔍 GOOGLE TITLE -->
-    <title>Mini Form | Student Data Collection</title>
+    <title>Microformix | Smart Student Data Collection</title>
 
-    <!-- 🔍 GOOGLE DESCRIPTION -->
-    <meta name="description" content="Mini Form is a student data collection website created by Monesh and hosted on GitHub Pages.">
-
-    <!-- 🔍 SEO META -->
-    <meta name="keywords" content="Mini Form, Microformix, student form, data collection, Monesh project">
+    <!-- SEO -->
+    <meta name="description" content="Microformix is a smart student data collection website created by Monesh.">
     <meta name="author" content="Monesh">
     <meta name="robots" content="index, follow">
-
-    <!-- 📱 RESPONSIVE -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- 🌐 OPEN GRAPH (Google / WhatsApp / Facebook) -->
-    <meta property="og:title" content="Mini Form">
-    <meta property="og:description" content="Mini Form is a student data collection website created by Monesh">
-    <meta property="og:image" content="https://monesh-sys.github.io/miniform/logo.png">
-    <meta property="og:url" content="https://monesh-sys.github.io/miniform/">
-    <meta property="og:type" content="website">
-
-    <!-- 🐦 TWITTER -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mini Form">
-    <meta name="twitter:description" content="Mini Form created by Monesh">
-    <meta name="twitter:image" content="https://monesh-sys.github.io/miniform/logo.png">
-
-    <!-- ⭐ FAVICON -->
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="logo.png">
 
-    <!-- 🧠 SCHEMA (VERY IMPORTANT FOR CREATOR INFO) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Mini Form",
-      "description": "Mini Form is a student data collection website created by Monesh.",
-      "author": {
-        "@type": "Person",
-        "name": "Monesh"
-      },
-      "url": "https://monesh-sys.github.io/miniform/"
-    }
-    </script>
-
-    <!-- 🎨 STYLE -->
     <style>
         body {
             margin: 0;
@@ -58,7 +23,7 @@
             align-items: center;
             font-family: Arial, sans-serif;
             color: white;
-            background: linear-gradient(-45deg, #000000, #111111, #222222, #000000);
+            background: linear-gradient(-45deg, #000000, #0f2027, #203a43, #000000);
             background-size: 400% 400%;
             animation: gradientBG 10s ease infinite;
         }
@@ -70,12 +35,12 @@
         }
 
         .container {
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.6);
             padding: 30px;
-            width: 85%;
-            max-width: 400px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+            width: 90%;
+            max-width: 420px;
+            border-radius: 16px;
+            box-shadow: 0 0 25px rgba(0,255,204,0.35);
             text-align: center;
         }
 
@@ -86,17 +51,25 @@
 
         h2 {
             font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            opacity: 0.8;
             margin-bottom: 20px;
         }
 
         label {
             font-size: 16px;
             display: block;
-            margin-top: 10px;
+            margin-top: 12px;
             text-align: left;
         }
 
-        input[type="text"], input[type="submit"] {
+        input[type="text"],
+        textarea,
+        input[type="submit"] {
             width: 100%;
             padding: 12px;
             margin-top: 6px;
@@ -105,17 +78,26 @@
             border-radius: 10px;
         }
 
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
         input[type="submit"] {
-            margin-top: 15px;
+            margin-top: 18px;
             background: #00ffcc;
             color: black;
             font-weight: bold;
             cursor: pointer;
         }
 
+        input[type="submit"]:hover {
+            background: #00ddb3;
+        }
+
         .creator {
             margin-top: 15px;
-            font-size: 14px;
+            font-size: 13px;
             opacity: 0.75;
         }
     </style>
@@ -125,12 +107,13 @@
 
 <div class="container">
 
-    <!-- 🖼 LOGO -->
-    <img src="logo.png" class="logo" alt="Mini Form Logo">
+    <!-- LOGO -->
+    <img src="logo.png" class="logo" alt="Microformix Logo">
 
-    <h2>Mini Form</h2>
+    <h2>Microformix</h2>
+    <div class="tagline">Smart Student Data Collection</div>
 
-    <!-- 📋 FORM -->
+    <!-- FORM -->
     <form action="https://script.google.com/macros/s/AKfycbwaGKUlnahOD-xf0ex5bbxVVqOiC6QY75UIFeGconjdhNkJEM1sBuDUVqTQyHiLrzRT/exec" method="POST">
 
         <label>Name</label>
@@ -142,11 +125,14 @@
         <label>Section</label>
         <input type="text" name="sec" required>
 
+        <!-- ✅ COMMENT BOX -->
+        <label>Comments / Others</label>
+        <textarea name="comments" placeholder="Write your comments or feedback here..."></textarea>
+
         <input type="submit" value="Submit">
 
     </form>
 
-    <!-- 👤 VISIBLE CREATOR (GOOGLE TRUSTS THIS) -->
     <div class="creator">
         Created by <strong>Monesh</strong>
     </div>
